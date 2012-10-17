@@ -84,7 +84,7 @@ module Rails3JQueryAutocomplete
     def json_for_autocomplete(items, method, extra_data=[], custom_data=[])
       items.collect do |item|
         hash = {"id" => item.id.to_s, "label" => item.send(method), "value" => item.send(method)}
-        hash[custom_data] = custom_data unless custom_data.nil?
+        hash[custom_data] = custom_data unless custom_data.empty?
         extra_data.each do |datum|
           hash[datum] = item.send(datum)
         end if extra_data
